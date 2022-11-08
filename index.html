@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NBA Career predictor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter statistics of the player</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            <div class="form-group">
+                <label for="GP">Games Played</label>
+                <input type="text" class="form-control" id="GP" name="GP">
+            </div>
+            <div class="form-group">
+                <label for="MIN">Minutes Played</label>
+                <input type="text" class="form-control" id="MIN" name="MIN">
+            </div>
+            <div class="form-group">
+                <label for="PTS">Points Per Game</label>
+                <input type="text" class="form-control" id="PTS" name="PTS">
+            </div>
+            <div class="form-group">
+                <label for="FGM">Field Goals Made</label>
+                <input type="text" class="form-control" id="FGM" name="FGM">
+            </div>
+            <div class="form-group">
+                <label for="FGA">Field Goal Attemps</label>
+                <input type="text" class="form-control" id="FGA" name="FGA">
+            </div>
+            <div class="form-group">
+                <label for="FG%">Field Goal Percent</label>
+                <input type="text" class="form-control" id="FG%" name="FG%">
+            </div>
+            <div class="form-group">
+                <label for="3PM">3Point Made</label>
+                <input type="text" class="form-control" id="3PM" name="3PM">
+            </div>
+            <div class="form-group">
+                <label for="3PA">3Point Attemps</label>
+                <input type="text" class="form-control" id="3PA" name="3PA">
+            </div>
+            <div class="form-group">
+                <label for="3P%">3Point Percent</label>
+                <input type="text" class="form-control" id="3P%" name="3P%">
+            </div>
+            <div class="form-group">
+                <label for="FTM">Free Throw Made</label>
+                <input type="text" class="form-control" id="FTM" name="FTM">
+            </div>
+            <div class="form-group">
+
+                <label for="FTA">Free Throw Attemps</label>
+                <input type="text" class="form-control" id="FTA" name="FTA">
+            </div>
+            <div class="form-group">
+                <label for="FT%">Free Throw Percent</label>
+                <input type="text" class="form-control" id="FT%" name="FT%">
+            </div>
+            <div class="form-group">
+                <label for="OREB">Offensive Rebounds</label>
+                <input type="text" class="form-control" id="OREB" name="OREB">
+            </div>
+            <div class="form-group">
+                <label for="DREB">Defensive Rebounds</label>
+                <input type="text" class="form-control" id="DREB" name="DREB">
+            </div>
+            <div class="form-group">
+                <label for="REB">Rebounds</label>
+                <input type="text" class="form-control" id="REB" name="REB">
+            </div>  
+            <div class="form-group">
+                <label for="AST">Assists</label>
+                <input type="text" class="form-control" id="AST" name="AST">
+            </div>
+            <div class="form-group">
+                <label for="STL">Steals</label>
+                <input type="text" class="form-control" id="STL" name="STL">
+            </div>
+            <div class="form-group">
+                <label for="BLK">Blocks</label>
+                <input type="text" class="form-control" id="BLK" name="BLK">
+            </div>
+            <div class="form-group">
+                <label for="TOV">Turnovers</label>
+                <input type="text" class="form-control" id="TOV" name="TOV">
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        {% if prediction_text %}
+            <div class="alert alert-success" role="alert">
+                {{ prediction_text }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
